@@ -334,17 +334,24 @@
 
   const NS = "http://www.w3.org/2000/svg";
   const svg = document.getElementById('garden');
-  // [punta chiara, medio, base scura] — giallo, blu e verde sono i suoi colori preferiti
+  // [punta chiara, medio, base scura]
   const PALETTE = [
     ['#fff6c2', '#ffd84a', '#d98e00'],  // giallo
-    ['#fffbe0', '#ffe680', '#c99a00'],  // giallo chiaro
     ['#dcebff', '#6fa8ff', '#1f4fb8'],  // blu
-    ['#eaf4ff', '#a5ccff', '#3d6fd1'],  // azzurro
     ['#f6fadf', '#cfe6a0', '#4f8f3e'],  // verde (tulipano viridiflora)
+    ['#ffb3a8', '#ff3b3b', '#9c0c1c'],  // rosso
+    ['#ffd2b0', '#ff8a4c', '#bf3d0a'],  // arancio
     ['#ffd6e0', '#ff86a6', '#c2185b'],  // rosa
+    ['#ffc2e8', '#ff3fae', '#a3006b'],  // fucsia
+    ['#ead4ff', '#b77cff', '#5f22a8'],  // viola
+    ['#f3e8ff', '#d4b8ff', '#8a5fd1'],  // lilla
+    ['#ffe0d6', '#ff9e85', '#d4523a'],  // corallo
+    ['#fff0e0', '#ffd0a8', '#e0915a'],  // pesca
+    ['#c9a3d9', '#6a2c7a', '#2e0a3a'],  // viola scuro (Queen of Night)
+    ['#e2f1ff', '#9cc9ff', '#3d6fd1'],  // azzurro
     ['#ffffff', '#f1f4ff', '#a9b6d3'],  // bianco
   ];
-  const WEIGHTS = [3, 2, 3, 2, 3, 1, 1];
+  const WEIGHTS = PALETTE.map(() => 1);  // tutti i colori con la stessa probabilità
   const WEIGHT_SUM = WEIGHTS.reduce((a, b) => a + b, 0);
   const rand = (a, b) => a + Math.random() * (b - a);
   const pick = arr => arr[Math.floor(Math.random() * arr.length)];
