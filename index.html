@@ -564,8 +564,8 @@
     for (let i = 0, m = Math.max(4, Math.round(n * .5)); i < m; i++)
       farList.push({ type: 'rose', x: (i + .5) * (W / m) + rand(-.4, .4) * (W / m) });
     farList.forEach(f => f.type === 'sun'
-      ? sunflower(far, f.x, H * rand(.42, .56), rand(.85, 1.1) * k, centerDelay(f.x), H)
-      : rose(far, f.x, H * rand(.2, .36), rand(.85, 1.1) * k, centerDelay(f.x), H));
+      ? sunflower(far, f.x, H * rand(.17, .28), rand(.8, 1) * k, centerDelay(f.x), H)
+      : rose(far, f.x, H * rand(.14, .26), rand(.85, 1.1) * k, centerDelay(f.x), H));
 
     const back = el('g', { class: 'back-row' }, svg);
     const front = el('g', {}, svg);
