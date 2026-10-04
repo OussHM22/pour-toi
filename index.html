@@ -266,10 +266,14 @@
     "alors j'ai fait pousser ce petit jardin, rien que pour toi.",
     "Certaines personnes laissent des fleurs partout où elles passent. Toi, tu en as laissé dans mon cœur.",
     "Ti amo.",
+    "Notre compatibilité, je crois qu'on peut toujours l'arranger… et moi, j'ai toujours voulu l'arranger.",
+    "Je voulais devenir une meilleure personne, et je voulais que tu sois à mes côtés.",
+    "Aujourd'hui j'essaie de le devenir, pour moi, mais aussi pour ce qu'on a été, et pour notre amour.",
     "J'espère sincèrement que tu vas bien, et que tu souris.",
     "Prends soin de toi. 🌷",
   ];
-  const SECONDI_PER_FRASE = 4.5;
+  // tempo di lettura: le frasi lunghe restano più a lungo
+  const durata = t => Math.max(4, 2.5 + t.length * .045);
   const YOUTUBE_ID = "266ldDxE3aA"; // Rihanna – Close To You (Rihanna - Topic)
   /* ============================== */
 
@@ -283,11 +287,13 @@
   });
 
   function playLines() {
+    let t = 1.8;
     lineEls.forEach((p, i) => {
       setTimeout(() => {
         if (i > 0) lineEls[i - 1].classList.remove('on');
         p.classList.add('on');
-      }, (1.8 + i * SECONDI_PER_FRASE) * 1000);
+      }, t * 1000);
+      t += durata(FRASI[i]);
     });
   }
 
